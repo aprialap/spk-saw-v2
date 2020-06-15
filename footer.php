@@ -1,4 +1,4 @@
-<footer class="text-center">&copy; 2016 - <?php $date=getdate(); echo $date["year"]; ?></footer>
+<footer class="text-center">&copy; <?php $date=getdate(); echo $date["year"]; ?></footer>
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

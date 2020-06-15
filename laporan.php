@@ -17,7 +17,7 @@ $db = $config->getConnection();
     <title>Sistem Pendukung Keputusan Metode SAW</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -27,12 +27,12 @@ $db = $config->getConnection();
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav">
-			<li class="active"><a href="index.php">Home</a></li>
-			<li class="active"><a href="nilai.php">Nilai</a></li>
-			<li class="active"><a href="kriteria.php">Kriteria</a></li>
-			<li class="active"><a href="alternatif.php">Alternatif</a></li>
-			<li class="active"><a href="rangking.php">Rangking</a></li>
-			<li class="active"><a href="laporan.php">Laporan</a></li>
+			<li><a href="index.php">Home</a></li>
+			<li><a href="nilai.php">Nilai</a></li>
+			<li><a href="kriteria.php">Kriteria</a></li>
+			<li><a href="alternatif.php">Alternatif</a></li>
+			<li><a href="rangking.php">Rangking</a></li>
+			<li><a href="laporan.php">Laporan</a></li>
 		  </ul>
 		  <ul class="nav navbar-nav navbar-right">
 			<li><a href="profil.php"><?php echo $_SESSION['nama_lengkap'] ?></a></li>

@@ -37,10 +37,19 @@ if($_POST){
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-8 col-md-4">&nbsp;</div>
-			<div class="col-xs-12 col-sm-4 col-md-4">
+			<div class="col-xs-12 col-sm-4 col-md-5">
 
 				<div style="margin-top: 100px;" class="panel panel-primary"><div class="panel-body">
-					<div class="text-center"><h4>LOGIN</h4></div>
+				<div class="text-center">
+					<img src="images/dpag.png" alt="" width="100" hight="100">	
+
+					<p>Sistem Pendukung Keputusan Penentuan Madrasah Tsanawiah (Mts) 
+						Terbaik Di Lampung Utara Menggunakan Metode Siple Additive Weighting (SAW)
+						Berbasis Web
+					</p>
+				</div>
+			
+					
 					<form method="post">
 						<div class="form-group">				    
 							<input type="text" class="form-control" name="username"  id="InputUsername1" placeholder="Username">
@@ -49,7 +58,7 @@ if($_POST){
 							<input type="password" class="form-control" name="password" id="InputPassword1" placeholder="Password">
 						</div>
 						<?php  ?>
-						<button type="submit" class="btn btn-primary col-md-12">Login</button>
+						<button type="submit" class="btn btn-success col-md-12">Login</button>
 					</form>
 				</div></div>
 

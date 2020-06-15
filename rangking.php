@@ -79,14 +79,24 @@ $stmt = $pro->readKhusus();
 	    </div>
 
 	    <div role="tabpanel" class="tab-pane" id="rangking">
+			
 	    	<br/>
-	    	<h4>Normalisasi R Perangkingan</h4>
-			<table width="100%" class="table table-striped table-bordered">
+			<div class="col-md-6 text-left">
+				<h4>Normalisasi R Perangkingan</h4>
+			</div>
+			<div class="col-md-6 text-right">
+					<button onclick="location.href=#" class="btn btn-secondary">Cetak PDF</button><br/>
+			</div>
+			
+	    	
+		
+			<table  class="table table-striped table-bordered">
 		        <thead>
 		            <tr>
 		                <th rowspan="2" style="vertical-align: middle" class="text-center">Alternatif</th>
 		                <th colspan="<?php echo $stmt2->rowCount(); ?>" class="text-center">Kriteria</th>
 		                <th rowspan="2" style="vertical-align: middle" class="text-center">Hasil</th>
+						<th rowspan="2" style="vertical-align: middle" class="text-center">Ket.</th>
 		            </tr>
 		            <tr>
 		            <?php
@@ -118,11 +128,14 @@ $stmt = $pro->readKhusus();
 		                	if($tipe=='benefit'){
 		                		$stmtmax = $pro->readMax($b);
 								$maxnr = $stmtmax->fetch(PDO::FETCH_ASSOC);
-								echo $nor = $rowr['nilai_rangking']/$maxnr['mnr1'];
+								$nor = $rowr['nilai_rangking']/$maxnr['mnr1'];
+
+								echo round($nor, 2);
 							} else{
 								$stmtmin = $pro->readMin($b);
 								$minnr = $stmtmin->fetch(PDO::FETCH_ASSOC);
-								echo $nor = $minnr['mnr2']/$rowr['nilai_rangking'];
+								$nor = $minnr['mnr2']/$rowr['nilai_rangking'];
+								echo round($nor, 2);
 							}
 							$pro->ia = $a;
 							$pro->ik = $b;
@@ -138,7 +151,58 @@ $stmt = $pro->readKhusus();
 							<?php 
 							$stmthasil = $pro->readHasil($a);
 							$hasil = $stmthasil->fetch(PDO::FETCH_ASSOC);
-							echo $hasil['bbn'];
+							echo round($hasil['bbn'], 2);
+							$pro->ia = $a;
+							$pro->has = $hasil['bbn'];
+							$pro->hasil();
+							?>
+						</td>
+
+						<td>
+							<?php 
+							$stmthasil = $pro->readHasil($a);
+							$hasil = $stmthasil->fetch(PDO::FETCH_ASSOC);
+							$ket = $hasil['bbn'];
+
+							
+
+							if($ket >=90 && $ket <=100 ){
+								echo "Terbaik 1";
+							}
+
+							if($ket >=85 && $ket <=89 ){
+								echo "Terbaik 2";
+							}
+
+							if($ket >=80 && $ket <=84 ){
+								echo "Terbaik 3";
+							}
+
+							if($ket >=65 && $ket <=79 ){
+								echo "Terbaik 4";
+							}
+
+							if($ket >=60 && $ket <=64 ){
+								echo "Terbaik 5";
+							}
+
+							if($ket >=55 && $ket <=59 ){
+								echo "Terbaik 6";
+							}
+
+							if($ket >=50 && $ket <=54 ){
+								echo "Terbaik 7";
+							}
+
+							if($ket >=45 && $ket <=49 ){
+								echo "Terbaik 8";
+							}
+
+							if($ket >=35 && $ket <=44){
+								echo "Terbaik 9";
+							}
+
+							
 							$pro->ia = $a;
 							$pro->has = $hasil['bbn'];
 							$pro->hasil();
