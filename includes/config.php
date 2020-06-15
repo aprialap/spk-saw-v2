@@ -2,7 +2,7 @@
 class Config{
 	
 	private $host = "localhost";
-	private $db_name = "spk_saw";
+	private $db_name = "spk_saw_v2";
 	private $username = "root";
 	private $password = "";
 	public $conn;
