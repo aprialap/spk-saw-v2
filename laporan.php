@@ -27,6 +27,7 @@ $db = $config->getConnection();
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav">
+		  <li><img src="images/dpag.png" alt="" width="50" hight="50"></li>
 			<li><a href="index.php">Home</a></li>
 			<li><a href="nilai.php">Nilai</a></li>
 			<li><a href="kriteria.php">Kriteria</a></li>
@@ -236,7 +237,7 @@ $stmty = $pro->readKhusus();
 	  </div>
 	
 	</div>
-	<footer class="text-center">&copy; 2016 - <?php $date = getdate(); echo $date['year']; ?></footer>
+	<footer class="text-center">&copy; <?php $date = getdate(); echo $date['year']; ?></footer>
 	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

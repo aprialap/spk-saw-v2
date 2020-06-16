@@ -85,7 +85,7 @@ $stmt = $pro->readKhusus();
 				<h4>Normalisasi R Perangkingan</h4>
 			</div>
 			<div class="col-md-6 text-right">
-					<button onclick="location.href=#" class="btn btn-secondary">Cetak PDF</button><br/>
+					<button onclick="location.href='normalisasi-rangking-cetak.php'" class="btn btn-secondary">Cetak PDF</button><br/>
 			</div>
 			
 	    	
