@@ -49,10 +49,10 @@ $stmty = $pro->readKhusus();
 
 $pdf = new PDF();
 $pdf->AddPage();
-$pdf->SetFont('Times','B',14);
+$pdf->SetFont('Times','B',12);
 $pdf->Cell(40,10,'Nilai Alternatif Kriteria',0,0,'L');
 $pdf->ln();
-$pdf->SetFont('Times','B',12);
+$pdf->SetFont('Times','B',9);
 $pdf->Cell(40,7,'Kriteria/Alternatif',1,0,'L');
 
 while ($row2x = $stmt2x->fetch(PDO::FETCH_ASSOC)){
@@ -60,35 +60,35 @@ while ($row2x = $stmt2x->fetch(PDO::FETCH_ASSOC)){
 }
 
 $pdf->ln();
-$pdf->SetFont('Times','',12);
+$pdf->SetFont('Times','',9);
 
 while ($row1x = $stmt1x->fetch(PDO::FETCH_ASSOC)){
 	$pdf->Cell(40,7,$row1x['nama_alternatif'],1,0,'L');
 	$stmtrx = $pro->readR($row1x['id_alternatif']);
 	while ($rowrx = $stmtrx->fetch(PDO::FETCH_ASSOC)){
-		$pdf->Cell(30,7,$rowrx['nilai_rangking'],1,0,'L');
+		$pdf->Cell(30,7,round($rowrx['nilai_rangking'], 2),1,0,'L');
 	}
 	$pdf->ln();
 }
 
-$pdf->SetFont('Times','B',14);
+$pdf->SetFont('Times','B',12);
 $pdf->Cell(40,10,'Normalisasi R',0,0,'L');
 $pdf->ln();
 
-$pdf->SetFont('Times','B',12);
+$pdf->SetFont('Times','B',9);
 $pdf->Cell(40,7,'Kriteria/Alternatif',1,0,'L');
 while ($row2y = $stmt2y->fetch(PDO::FETCH_ASSOC)){
 	$pdf->Cell(30,7,$row2y['nama_kriteria'],1,0,'L');
 }
 
 $pdf->ln();
-$pdf->SetFont('Times','',12);
+$pdf->SetFont('Times','',9);
 
 while ($row1y = $stmt1y->fetch(PDO::FETCH_ASSOC)){
 	$pdf->Cell(40,7,$row1y['nama_alternatif'],1,0,'L');
 	$stmtry = $pro->readR($row1y['id_alternatif']);
 	while ($rowry = $stmtry->fetch(PDO::FETCH_ASSOC)){
-		$pdf->Cell(30,7,number_format($rowry['nilai_normalisasi'], 3, '.', ','),1,0,'L');
+		$pdf->Cell(30,7,round($rowry['nilai_normalisasi'], 2),1,0,'L');
 	}
 	$pdf->ln();
 }
@@ -98,26 +98,26 @@ while ($row2yx = $stmt2yx->fetch(PDO::FETCH_ASSOC)){
 }
 $pdf->ln();
 
-$pdf->SetFont('Times','B',14);
+$pdf->SetFont('Times','B',12);
 $pdf->Cell(40,10,'Hasil Akhir',0,0,'L');
 $pdf->ln();
 
-$pdf->SetFont('Times','B',12);
-$pdf->Cell(25,7,'K/A',1,0,'L');
+$pdf->SetFont('Times','B',9);
+$pdf->Cell(40,7,'K/A',1,0,'L');
 while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
 	$pdf->Cell(25,7,$row2['nama_kriteria'],1,0,'L');
 }
-$pdf->Cell(40,7,'Hasil',1,0,'L');
+$pdf->Cell(25,7,'Hasil',1,0,'L');
 $pdf->ln();
-$pdf->SetFont('Times','',12);
+$pdf->SetFont('Times','',9);
 
 while ($row1 = $stmt1->fetch(PDO::FETCH_ASSOC)){
-	$pdf->Cell(25,7,$row1['nama_alternatif'],1,0,'L');
+	$pdf->Cell(40,7,$row1['nama_alternatif'],1,0,'L');
 	$stmtr = $pro->readR($row1['id_alternatif']);
 	while ($rowr = $stmtr->fetch(PDO::FETCH_ASSOC)){
-		$pdf->Cell(25,7,number_format($rowr['bobot_normalisasi'], 3, '.', ','),1,0,'L');
+		$pdf->Cell(25,7,round($rowr['bobot_normalisasi'], 2),1,0,'L');
 	}
-	$pdf->Cell(40,7,$row1['hasil_alternatif'],1,0,'L');
+	$pdf->Cell(25,7, round($row1['hasil_alternatif'],2),1,0,'L');
 	$pdf->ln();
 }
 
